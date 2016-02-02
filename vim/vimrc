@@ -3,6 +3,9 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dbeniamine/todo.txt-vim'
 
 call plug#end()
 
