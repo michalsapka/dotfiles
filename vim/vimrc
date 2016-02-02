@@ -1,0 +1,17 @@
+call plug#begin('~/.vim/plugged')
+
+" Plugins
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
+" Display settings
+colorscheme molokai
+set laststatus=2 " Always display status line
+
+let g:airline_powerline_fonts = 1 
+
+
+
+
