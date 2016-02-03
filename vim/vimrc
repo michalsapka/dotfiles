@@ -1,20 +1,71 @@
-call plug#begin('~/.vim/plugged')
+" make VIM fast
+set ttyfast
+set ttymouse=xterm2
+set lazyredraw
+set ttyscroll=3
 
+call plug#begin('~/.vim/plugged')
 " Plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dbeniamine/todo.txt-vim'
-
+Plug 'ntpeters/vim-better-whitespace'
+" Plug 'ervandew/supertab'
+Plug 'tpope/vim-dispatch'
+Plug 'thoughtbot/vim-rspec'
 call plug#end()
 
 " Display settings
-colorscheme molokai
+set t_Co=256
+colorscheme monokai
 set laststatus=2 " Always display status line
+set wildmenu " Show commands matching current
+set clipboard=unnamed " Use system clipboard
+set list listchars=tab:»·,trail:· " Display extra spaces and tabs
 
-let g:airline_powerline_fonts = 1 
+syntax on
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme="molokai"
 
+" Use relative line numbers but show absolute
+" line number for current line
+set relativenumber
+set number
 
+let mapleader = ","
+
+" Use Silver Searcher for CtrlP
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" Keep backups in a better place
+set backupdir=~/.tmp/backups
+set directory=~/.tmp/swaps
+if exists("&undodir")
+  set undodir=~/.tmp/undo
+endif
+
+" tab is two spaces
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+"use ; instead of :
+nmap ; :
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+" faster keys
+set ttimeout
+set ttimeoutlen=250
+set notimeout
+
+" vim-rspec config
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
