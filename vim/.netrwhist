@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/michalsapka/code/sales'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/michalsapka/code/sales/spec/controllers/api/v1/deal_custom_fields'
+let g:netrw_dirhist_2='/Users/michalsapka/code/reports'
+let g:netrw_dirhist_3='/Users/michalsapka/code/reports/app'
+let g:netrw_dirhist_4='/Users/michalsapka/code/reports/app/models'
+let g:netrw_dirhist_5='/Users/michalsapka/code/reports/app'
+let g:netrw_dirhist_6='/Users/michalsapka/code/reports'
+let g:netrw_dirhist_7='/Users/michalsapka/code/reports/app'
+let g:netrw_dirhist_8='/Users/michalsapka/code/reports'

@@ -13,8 +13,12 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dbeniamine/todo.txt-vim'
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'ervandew/supertab'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'thoughtbot/vim-rspec'
+Plug 'plasticboy/vim-markdown'
+" Plug 'airblade/vim-gitgutter'
+
 call plug#end()
 
 " Display settings
@@ -32,7 +36,7 @@ let g:airline_theme="molokai"
 
 " Use relative line numbers but show absolute
 " line number for current line
-set relativenumber
+" set relativenumber
 set number
 
 let mapleader = ","
@@ -59,9 +63,9 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " faster keys
-set ttimeout
-set ttimeoutlen=250
-set notimeout
+" set ttimeout
+" set ttimeoutlen=250
+" set notimeout
 
 " vim-rspec config
 map <Leader>t :call RunCurrentSpecFile()<CR>
