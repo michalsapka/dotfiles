@@ -28,6 +28,7 @@ set laststatus=2 " Always display status line
 set wildmenu " Show commands matching current
 set clipboard=unnamed " Use system clipboard
 set list listchars=tab:»·,trail:· " Display extra spaces and tabs
+set cursorline
 
 syntax on
 

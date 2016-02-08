@@ -1,0 +1,27 @@
+tasks:
+  -
+    info: Configuring VIM...
+    type: symlink
+    source: vim/vimrc
+    destination: ~/.vimrc
+  -
+    info: Configuring Silver Searcher...
+    type: symlink
+    source: ag/agignore
+    destination: ~/.agignore
+  -
+    info: Configuring Ruby Gems...
+    type: symlink
+    source: ruby/gemrc
+    destination: ~/.gemrc
+  -
+    info: Configuring tmux...
+    type: symlink
+    source: tmux/tmux.conf
+    destination: ~/.tmux.conf
+  -
+    info: Configuring global Gitignore...
+    type: symlink
+    source: git/gitignore
+    destination: ~/.gitignore
+
