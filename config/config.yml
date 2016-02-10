@@ -1,5 +1,10 @@
 tasks:
   -
+    info: Configuring VIM directory...
+    type: symlink
+    source: vim
+    destination: ~/.vim
+  -
     info: Configuring VIM...
     type: symlink
     source: vim/vimrc
@@ -24,4 +29,9 @@ tasks:
     type: symlink
     source: git/gitignore
     destination: ~/.gitignore
+  -
+    info: Configuring rbenv...
+    type: symlink
+    source: rbenv
+    destination: ~/.rbenv
 
