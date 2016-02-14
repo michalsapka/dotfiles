@@ -9,7 +9,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'dbeniamine/todo.txt-vim'
 Plug 'ntpeters/vim-better-whitespace'
 " Plug 'ervandew/supertab'
@@ -40,10 +41,7 @@ let g:airline_theme="molokai"
 " set relativenumber
 set number
 
-let mapleader = ","
-
-" Use Silver Searcher for CtrlP
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let mapleader = "\<Space>"
 
 " Keep backups in a better place
 set backupdir=~/.tmp/backups
@@ -73,4 +71,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" fzf
+let g:fzf_layout = { 'down': '~40%' }
+map <C-P> :call fzf#vim#files(".")<CR>
+map <Leader>c :call fzf#vim#tags()<CR>
 
