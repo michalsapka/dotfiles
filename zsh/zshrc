@@ -4,8 +4,8 @@ chpwd() {
 }
 
 export ZSH=/Users/michalsapka/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=(git vi-mode)
+ZSH_THEME="bira"
+plugins=(git zsh-syntax-highlighting)
 export PATH="/Users/michalsapka/.rbenv/shims:/Users/michalsapka/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$PATH"
 eval "$(rbenv init -)"
 source $ZSH/oh-my-zsh.sh

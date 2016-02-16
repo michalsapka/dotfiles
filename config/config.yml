@@ -39,4 +39,9 @@ tasks:
     type: symlink
     source: zsh/zshrc
     destination: ~/.zshrc
+  -
+    info: Configuring oh-my-zsh...
+    type: symlink
+    source: oh-my-zsh
+    destination: ~/.oh-my-zsh
 

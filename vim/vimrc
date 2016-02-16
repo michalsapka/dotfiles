@@ -26,7 +26,10 @@ call plug#end()
 
 " Display settings
 set t_Co=256
-colorscheme monokai
+syntax enable
+set background=dark
+colorscheme solarized
+
 set laststatus=2 " Always display status line
 set wildmenu " Show commands matching current
 set clipboard=unnamed " Use system clipboard
