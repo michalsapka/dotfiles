@@ -34,4 +34,9 @@ tasks:
     type: symlink
     source: rbenv
     destination: ~/.rbenv
+  -
+    info: Configuring zsh...
+    type: symlink
+    source: zsh/zshrc
+    destination: ~/.zshrc
 

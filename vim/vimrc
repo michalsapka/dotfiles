@@ -19,6 +19,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'thoughtbot/vim-rspec'
 Plug 'plasticboy/vim-markdown'
 " Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 

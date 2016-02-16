@@ -1,0 +1,30 @@
+# Show contents of directory after cd-ing into it
+chpwd() {
+  ls
+}
+
+export ZSH=/Users/michalsapka/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+plugins=(git vi-mode)
+export PATH="/Users/michalsapka/.rbenv/shims:/Users/michalsapka/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$PATH"
+eval "$(rbenv init -)"
+source $ZSH/oh-my-zsh.sh
+
+alias grid='RBENV_VERSION=2.3 grid'
+alias r='bundle exec rspec'
+alias code="cd ~/code"
+alias buu="brew update;brew upgrade"
+alias todo="vi ~/synced/todo/todo.txt"
+alias notes="cd ~/synced/notes"
+alias a="atom ."
+alias vi="/usr/local/bin/vim"
+alias vim="vi"
+alias v="vi"
+alias gdp="grid deploy"
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
+alias rspec="bundle exec rspec"
+alias amend="git commit --amend"
+alias ct="ctags -R --languages=ruby --exclude=.git --exclude=log ."
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
