@@ -21,6 +21,10 @@ Plug 'plasticboy/vim-markdown'
 " Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
 
@@ -29,6 +33,7 @@ set t_Co=256
 syntax enable
 set background=dark
 colorscheme solarized
+set scrolloff=10
 
 set laststatus=2 " Always display status line
 set wildmenu " Show commands matching current
@@ -36,6 +41,9 @@ set clipboard=unnamed " Use system clipboard
 set list listchars=tab:»·,trail:· " Display extra spaces and tabs
 set cursorline
 set nofoldenable
+set incsearch
+set hlsearch
+set ignorecase
 syntax on
 
 let g:airline_powerline_fonts = 1
@@ -45,6 +53,7 @@ let g:airline_theme="molokai"
 " line number for current line
 " set relativenumber
 set number
+set relativenumber 
 
 let mapleader = "\<Space>"
 
@@ -82,3 +91,17 @@ let g:fzf_layout = { 'down': '~40%' }
 map <C-P> :call fzf#vim#files(".")<CR>
 map <Leader>c :call fzf#vim#tags()<CR>
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l

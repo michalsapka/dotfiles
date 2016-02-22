@@ -3,6 +3,16 @@ chpwd() {
   ls
 }
 
+# Warn against *grid*/master  branches
+preexec(){
+  if [ -d .git ]; then
+    branch=$(git symbolic-ref HEAD | cut -d'/' -f3)
+    if [[ "$branch" =~ 'grid|master' ]]; then
+      echo -e "\e[41m    On grid branch!    \e[0m"
+    fi
+  fi
+}
+
 export ZSH=/Users/michalsapka/.oh-my-zsh
 ZSH_THEME="bira"
 plugins=(git zsh-syntax-highlighting)
@@ -11,12 +21,12 @@ eval "$(rbenv init -)"
 source $ZSH/oh-my-zsh.sh
 
 alias grid='RBENV_VERSION=2.3 grid'
+alias rubocop='RBENV_VERSION=2.3 rubocop'
 alias r='bundle exec rspec'
 alias code="cd ~/code"
 alias buu="brew update;brew upgrade"
 alias todo="vi ~/synced/todo/todo.txt"
 alias notes="cd ~/synced/notes"
-alias a="atom ."
 alias vi="/usr/local/bin/vim"
 alias vim="vi"
 alias v="vi"
