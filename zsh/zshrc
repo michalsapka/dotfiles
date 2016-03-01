@@ -1,6 +1,9 @@
 # Show contents of directory after cd-ing into it
 chpwd() {
   ls
+  set_iterm_tab_color
+
+
 }
 
 # Warn against *grid*/master  branches
@@ -13,12 +16,46 @@ preexec(){
   fi
 }
 
+setupapp(){
+  bundle
+  appname=(`basename "$PWD"`)
+  cp ~/helpers/database.yml ./config/database.yml
+  cd config
+  sed -i '' "s/APPNAME/$appname/g" database.yml
+  cd ../
+  bundle exec rake db:create:all
+  bundle exec rake db:migrate
+  bundle exec rake db:migrate RAILS_ENV=test
+  bundle exec rake db:migrate RAILS_ENV=development
+  bundle exec rspec
+
+  echo ""
+  echo "################################################################"
+  echo "#                                                              #"
+  echo "#                          APP READY                           #"
+  echo "#                                                              #"
+  echo "################################################################"
+  echo ""
+}
+
+function set_iterm_tab_color(){
+if git rev-parse --git-dir > /dev/null 2>&1; then
+  top_dir=`git rev-parse --show-toplevel`
+  if [  -f /$top_dir/.iterm_colors ]; then
+    echo -n -e `sed -n '1p' < $top_dir/.iterm_colors`
+    echo -n -e `sed -n '2p' < $top_dir/.iterm_colors`
+    echo -n -e `sed -n '3p' < $top_dir/.iterm_colors`
+  fi
+fi
+}
+
 export ZSH=/Users/michalsapka/.oh-my-zsh
 ZSH_THEME="bira"
 plugins=(git zsh-syntax-highlighting)
 export PATH="/Users/michalsapka/.rbenv/shims:/Users/michalsapka/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:$PATH"
 eval "$(rbenv init -)"
 source $ZSH/oh-my-zsh.sh
+if which exenv > /dev/null; then eval "$(exenv init -)"; fi
 
 alias grid='RBENV_VERSION=2.3 grid'
 alias rubocop='RBENV_VERSION=2.3 rubocop'
@@ -38,3 +75,12 @@ alias amend="git commit --amend"
 alias ct="ctags -R --languages=ruby --exclude=.git --exclude=log ."
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function agrepl(){
+  ag -l $1 | xargs sed -i '' "s/$1/$2/"
+}
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+iterm2_print_user_vars() {
+    iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+  }

@@ -25,6 +25,7 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
 
