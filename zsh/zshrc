@@ -1,9 +1,10 @@
 # Show contents of directory after cd-ing into it
 chpwd() {
   ls
+}
+
+precmd(){
   set_iterm_tab_color
-
-
 }
 
 # Warn against *grid*/master  branches
@@ -38,15 +39,16 @@ setupapp(){
   echo ""
 }
 
+# set color iterm tab based on .iterm_colors
 function set_iterm_tab_color(){
-if git rev-parse --git-dir > /dev/null 2>&1; then
-  top_dir=`git rev-parse --show-toplevel`
-  if [  -f /$top_dir/.iterm_colors ]; then
-    echo -n -e `sed -n '1p' < $top_dir/.iterm_colors`
-    echo -n -e `sed -n '2p' < $top_dir/.iterm_colors`
-    echo -n -e `sed -n '3p' < $top_dir/.iterm_colors`
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    top_dir=`git rev-parse --show-toplevel`
+    if [  -f /$top_dir/.iterm_colors ]; then
+      echo -n -e `sed -n '1p' < $top_dir/.iterm_colors`
+      echo -n -e `sed -n '2p' < $top_dir/.iterm_colors`
+      echo -n -e `sed -n '3p' < $top_dir/.iterm_colors`
+    fi
   fi
-fi
 }
 
 export ZSH=/Users/michalsapka/.oh-my-zsh
@@ -73,6 +75,7 @@ alias zshrc="vim ~/.zshrc"
 alias rspec="bundle exec rspec"
 alias amend="git commit --amend"
 alias ct="ctags -R --languages=ruby --exclude=.git --exclude=log ."
+alias mcs="make clean serve"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
