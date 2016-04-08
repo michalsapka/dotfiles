@@ -26,7 +26,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'elixir-lang/vim-elixir'
 Plug 'Yggdroot/indentLine'
-
+Plug 'vim-ruby/vim-ruby'
 call plug#end()
 
 " Display settings
@@ -46,6 +46,7 @@ set incsearch
 set hlsearch
 set ignorecase
 syntax on
+set re=1
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme="molokai"
